@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.tyrone.tarea1;
 
 import javax.swing.JOptionPane;
@@ -15,6 +11,7 @@ public class VentanaConNumerosOrdenados {
         for (int i = 1; i <= 10; i++) {
            
             int dato = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el " + i + "° número:"));
+            
             switch (i) {
                 case 1:
                    nu1 = dato;
@@ -53,27 +50,11 @@ public class VentanaConNumerosOrdenados {
         }
 
         //Calculos
-        
-        
-        //Muestra resultados
-        
-        System.out.println("numero 1:"+ nu1);
+    
         JOptionPane.showMessageDialog(null, ordenadDatos(nu1, nu2, nu3, nu4, nu5, nu6, nu7, nu8, nu9, nu10, true));
         JOptionPane.showMessageDialog(null, ordenadDatos(nu1, nu2, nu3, nu4, nu5, nu6, nu7, nu8, nu9, nu10, false));
-        
-        
+            
     }
-    
-//    public static short extraerNumeros(String dato) {
-//        short numeros = 0;
-//        for (int i = 0; i < dato.length(); i++) {
-//            char c = dato.charAt(i);
-//            if (c >= '0' && c <= '9') {
-//                numeros += c;
-//            }
-//        }
-//        return numeros;
-//    }
     
     public static String ordenadDatos(int a, int b, int c, int d, int e, int f, int g, int h, int i, int j, boolean ascend) {
         int nuTemp1 = a, nuTemp2 = b, nuTemp3 = c, nuTemp4 = d, nuTemp5 = e, nuTemp6 = f, nuTemp7 = g, nuTemp8 = h, nuTemp9 = i, nuTemp10 = j;
@@ -150,8 +131,8 @@ public class VentanaConNumerosOrdenados {
         // Mostrar resultados
         System.out.println("Los numeros ordenados "+(ascend ? "ascendetemente" : "descendetemente")+" son: "+ nuTemp1 + " " + nuTemp2 + " " + nuTemp3 + " " + nuTemp4 + " " + nuTemp5 + " " + nuTemp6 + " " + nuTemp7 + " " + nuTemp8 + " " + nuTemp9 + " " + nuTemp10);
        
-        String resul = "Los numeros ordenados son: "+ nuTemp1 + " " + nuTemp2 + " " + nuTemp3 + " " + nuTemp4 + " " + nuTemp5 + " " + nuTemp6 + " " + nuTemp7 + " " + nuTemp8 + " " + nuTemp9 + " " + nuTemp10;
-        return resul;
+        String result = "Los numeros ordenados "+(ascend ? "ascendetemente" : "descendetemente")+" son: "+ nuTemp1 + " " + nuTemp2 + " " + nuTemp3 + " " + nuTemp4 + " " + nuTemp5 + " " + nuTemp6 + " " + nuTemp7 + " " + nuTemp8 + " " + nuTemp9 + " " + nuTemp10;
+        return result;
         
     }
 }

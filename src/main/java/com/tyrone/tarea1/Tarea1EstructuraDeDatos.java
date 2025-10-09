@@ -9,5 +9,9 @@ package com.tyrone.tarea1;
  * @author tyron
  */
 public class Tarea1EstructuraDeDatos {
+    //Declaracion de variables
+    //Ingreso de datos
+    //Calculo
+    //Muestra resultados
     
 }
