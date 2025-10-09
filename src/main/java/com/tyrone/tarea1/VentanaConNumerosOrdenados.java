@@ -143,15 +143,14 @@ public class VentanaConNumerosOrdenados {
                 nuTemp9 = nuTemp10;
                 nuTemp10 = t;
                 ordenado = false;
-            }
-            
+            }    
             
         }
 
         // Mostrar resultados
-        System.out.println("Los numeros ordenados son: "+ nuTemp1 + " " + nuTemp2 + " " + nuTemp3 + " " + nuTemp4 + " " + nuTemp5 + " " + nuTemp6 + " " + nuTemp7 + " " + nuTemp8 + " " + nuTemp9 + " " + nuTemp10);
+        System.out.println("Los numeros ordenados "+(ascend ? "ascendetemente" : "descendetemente")+" son: "+ nuTemp1 + " " + nuTemp2 + " " + nuTemp3 + " " + nuTemp4 + " " + nuTemp5 + " " + nuTemp6 + " " + nuTemp7 + " " + nuTemp8 + " " + nuTemp9 + " " + nuTemp10);
        
-        String resul = "Los numeroso son:"+ nuTemp1 + " " + nuTemp2 + " " + nuTemp3 + " " + nuTemp4 + " " + nuTemp5 + " " + nuTemp6 + " " + nuTemp7 + " " + nuTemp8 + " " + nuTemp9 + " " + nuTemp10;
+        String resul = "Los numeros ordenados son: "+ nuTemp1 + " " + nuTemp2 + " " + nuTemp3 + " " + nuTemp4 + " " + nuTemp5 + " " + nuTemp6 + " " + nuTemp7 + " " + nuTemp8 + " " + nuTemp9 + " " + nuTemp10;
         return resul;
         
     }
