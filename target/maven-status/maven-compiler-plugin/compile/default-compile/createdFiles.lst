@@ -1,9 +1,12 @@
 com\tyrone\tarea1\ConteoDigitoNumero.class
 com\tyrone\tarea4\NODO.class
 com\tyrone\tarea1\MultiplicacionSinSuOperador.class
+com\tyrone\tarea4\OrdenarColaValorInderteminado.class
 com\tyrone\tarea1\VentanaConNumerosOrdenados.class
 com\tyrone\tarea4\PILA.class
 com\tyrone\tarea1\NumerosImparesDeUnNumero.class
 com\tyrone\tarea4\InvertirPila.class
 com\tyrone\tarea1\ConcatenacionPersonalizada.class
+com\tyrone\tarea4\PILAShort.class
 com\tyrone\tarea1\Tarea1EstructuraDeDatos.class
+com\tyrone\tarea4\NODOShort.class
