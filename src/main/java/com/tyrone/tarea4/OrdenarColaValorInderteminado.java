@@ -48,12 +48,12 @@ public class OrdenarColaValorInderteminado {
                 }
             }
 
-            // Insertar el elemento actual en su lugar dentro de pilaOrd
+            
             pilaOrd.Apilar(nuDesapilado);
           
         }
 
-        // devuelve la pila ordenada descendente
+       
         while (!pilaOrd.Pvacio()) {
             pilaNueva.Apilar(pilaOrd.Desapilar());
 //            System.out.println(pilaOrd.Desapilar());
