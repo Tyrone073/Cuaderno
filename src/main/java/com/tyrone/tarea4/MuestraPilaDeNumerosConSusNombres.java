@@ -43,7 +43,7 @@ public class MuestraPilaDeNumerosConSusNombres {
 //        pila=restaurador;
         
         System.out.println("Numeros ingresados:");
-        System.out.println("TOP     Nombre");
+        System.out.println("Top     Nombre");
         while(!pila.Pvacio()){
             short numPila = pila.Desapilar();
 
