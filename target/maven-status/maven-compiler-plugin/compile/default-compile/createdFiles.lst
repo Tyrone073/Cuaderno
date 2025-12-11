@@ -1,7 +1,9 @@
 com\tyrone\tarea3\listaDoblementeEnlazadaCircular\ListaNomina.class
 com\tyrone\tarea3\listaSimplementeEnlazadaCircular\Nomina.class
+com\tyrone\tarea6\ListaDoble.class
 com\tyrone\tarea1\NumerosImparesDeUnNumero.class
 com\tyrone\tarea3\listaDoblementeEnlazadaCircular\ListaTitular.class
+com\tyrone\tarea6\Estudiante.class
 com\tyrone\tarea3\listaSimplementeEnlazadaCircular\CanchaMain.class
 com\tyrone\tarea3\listaDoblementeEnlazadaCircular\Jugador.class
 com\tyrone\tarea1\Tarea1EstructuraDeDatos.class
@@ -18,8 +20,10 @@ com\tyrone\tarea3\listaDoblementeEnlazadaCircular\CanchaMain.class
 com\tyrone\tarea4\PILA.class
 com\tyrone\tarea4\MuestraPilaDeNumerosConSusNombres.class
 com\tyrone\tarea4\InvertirPila.class
+com\tyrone\tarea6\NodoDoble.class
 com\tyrone\tarea4\NODOString.class
 com\tyrone\tarea1\ConcatenacionPersonalizada.class
+com\tyrone\tarea6\MainPuntajeMejoresPostulacion.class
 com\tyrone\tarea1\MultiplicacionSinSuOperador.class
 com\tyrone\tarea3\listaSimplementeEnlazadaCircular\NodoJugador.class
 com\tyrone\tarea4\OrdenarColaValorInderteminado.class
