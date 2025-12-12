@@ -34,8 +34,7 @@ public class ArbolBinario {
     public void añadir(Producto dato){
         NodoDoble nuevoNodo = new NodoDoble(null, dato, null);
         insertar(nuevoNodo, raiz);
-        
-        
+                
     }
     
     private void insertar(NodoDoble nuevo, NodoDoble r){
@@ -65,7 +64,7 @@ public class ArbolBinario {
         if(esVacia()){
             return;
         }
-        System.out.println(""+nd.getDato());
+        System.out.println("" + nd.getDato());
         preorden(nd.getIzquierda());
         preorden(nd.getDerecha());
     }

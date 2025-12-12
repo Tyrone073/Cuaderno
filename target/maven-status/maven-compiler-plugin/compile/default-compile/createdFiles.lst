@@ -1,3 +1,4 @@
+com\tyrone\tarea7\arbolBinarioDeBusqueda\NodoDoble.class
 com\tyrone\tarea3\listaDoblementeEnlazadaCircular\ListaNomina.class
 com\tyrone\tarea3\listaSimplementeEnlazadaCircular\Nomina.class
 com\tyrone\tarea6\ListaDoble.class
@@ -8,15 +9,21 @@ com\tyrone\tarea3\listaSimplementeEnlazadaCircular\CanchaMain.class
 com\tyrone\tarea3\listaDoblementeEnlazadaCircular\Jugador.class
 com\tyrone\tarea1\Tarea1EstructuraDeDatos.class
 com\tyrone\tarea4\PILAString.class
+com\tyrone\tarea7\arbolBalanceados\ArbolBalanceado.class
+com\tyrone\tarea7\arbolBinarioDeBusqueda\Main.class
 com\tyrone\tarea3\listaDoblementeEnlazadaCircular\NodoJugador.class
 com\tyrone\tarea1\VentanaConNumerosOrdenados.class
 com\tyrone\pruebas\ScreenServer.class
 com\tyrone\tarea4\OrdenarDosColasValoresIndeterminados.class
 com\tyrone\tarea4\PILAShort.class
 com\tyrone\tarea4\NODOShort.class
+com\tyrone\tarea7\arbolBinarioDeBusqueda\ArbolBinario.class
 com\tyrone\tarea1\ConteoDigitoNumero.class
+com\tyrone\tarea7\arbolBinarioDeBusqueda\Producto.class
+com\tyrone\tarea7\arbolBalanceados\Main.class
 com\tyrone\tarea4\NODO.class
 com\tyrone\tarea3\listaDoblementeEnlazadaCircular\CanchaMain.class
+com\tyrone\tarea7\arbolBalanceados\NodoDoble.class
 com\tyrone\tarea4\PILA.class
 com\tyrone\tarea4\MuestraPilaDeNumerosConSusNombres.class
 com\tyrone\tarea4\InvertirPila.class
@@ -28,4 +35,5 @@ com\tyrone\tarea1\MultiplicacionSinSuOperador.class
 com\tyrone\tarea3\listaSimplementeEnlazadaCircular\NodoJugador.class
 com\tyrone\tarea4\OrdenarColaValorInderteminado.class
 com\tyrone\tarea3\listaSimplementeEnlazadaCircular\Principales.class
+com\tyrone\tarea7\arbolBalanceados\Producto.class
 com\tyrone\tarea3\listaSimplementeEnlazadaCircular\Persona.class
