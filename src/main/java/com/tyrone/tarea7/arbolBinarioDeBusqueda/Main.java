@@ -12,40 +12,72 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args) {
-        ArbolBinario abb = new ArbolBinario();
         Scanner cap = new Scanner(System.in);
-        String pregunta = "S";
+        ArbolBinario abb = new ArbolBinario(); 
         
+        short preguntaMenu = 0;
+              
         do{
+        System.out.println("Menu de opciones:");
+        System.out.println("1. Agregar nuevo producto");
+        System.out.println("2. Actualizar Stock de un producto");
+        System.out.println("3. Buscar un producto");
+        System.out.println("4. Eliminar un producto");
+        System.out.println("5. Ver todos los productos");
+        System.out.println("0. Salir");
+            
+        System.out.print("\nIngrese una de las opciones: ");
+        preguntaMenu = cap.nextShort();
+        cap.nextLine();
+        
+        switch (preguntaMenu) {
+            
+            case 0:
+                System.out.println("Saliendo del sistema...");        
+                break;
+            case 1:
+                System.out.println("===Registrando el producto===");
+                System.out.print("Ingrese el nombre del producto: ");
+                String nombre = cap.nextLine();
 
-            System.out.println("Registre el producto");
-            String nombre = cap.nextLine();
+                System.out.println("Ingrese la catidad del progucto a guardar");
+                int stock = cap.nextInt();
+                cap.nextLine();
 
-            System.out.println("Ingrese la catidad del progucto a guardar");
-            int stock = cap.nextInt();
+                
+                //Generando codigo unico mediante la concatenacion del orden de las letras mediaante numeros
+                int codigo = 0;
+                String nombreAux = nombre.toUpperCase().replace(" ", "");
 
-            int codigo = 0;
-            String nombreAux = nombre.toUpperCase().replace(" ", "");
-    //        String nombreAux = nombre.replace(" ", "");
+                for(int i =0; i < nombreAux.length(); i++){
 
-            for(int i =0; i < nombreAux.length(); i++){
+                    char letra = nombreAux.charAt(i);
+                    if (letra >= 'A' && letra <= 'Z') {
+                        int valor = letra - 'A' + 1; // A=1, B=2, ...
+                        codigo = codigo * 10 + valor; 
+                    }
 
-                char letra = nombreAux.charAt(i);
-                if (letra >= 'A' && letra <= 'Z') {
-                    int valor = letra - 'A' + 1; // A=1, B=2, ...
-                    codigo = codigo * 10 + valor; 
                 }
+                System.out.println("el producto se guardo con el codigo unico: "+ codigo);
+                Producto nuevoProducto = new Producto(codigo, nombre, stock);
+                abb.añadir(nuevoProducto);
+            
+            case 2:
+            System.out.println("");
 
-            }
-            System.out.println("el producto se guardo con el codigo unico: "+ codigo);
-            Producto nuevoProducto = new Producto(codigo, nombre, stock);
-            abb.añadir(nuevoProducto);
+            case 3:
+                System.out.println("");
+            case 4:
+                System.out.println("");
+            case 5:
+                System.out.println("");
+            default:
+                System.out.println("Escoja una de las opciones disponibles");;
+        }
+        
+             
             
-            System.out.println("Desea agregar otro porducto? responda con S o N");
-            pregunta = cap.nextLine();
-            
-            
-        }  while(pregunta.equalsIgnoreCase("N"));
+        }  while(preguntaMenu != 0);
         
     }
     

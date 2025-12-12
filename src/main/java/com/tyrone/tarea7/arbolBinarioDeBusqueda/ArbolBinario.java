@@ -33,11 +33,11 @@ public class ArbolBinario {
     
     public void añadir(Producto dato){
         NodoDoble nuevoNodo = new NodoDoble(null, dato, null);
-        insertar(nuevoNodo, raiz);
+        insertarNuevoProducto(nuevoNodo, raiz);
                 
     }
     
-    private void insertar(NodoDoble nuevo, NodoDoble r){
+    private void insertarNuevoProducto(NodoDoble nuevo, NodoDoble r){
 //        String nombreProducnuevo = nuevo.getDato().getNombre();
 //        String nombreProducR= r.getDato().getNombre();
         
@@ -47,26 +47,47 @@ public class ArbolBinario {
             if (r.getIzquierda()== null) {
                 r.setIzquierda(nuevo);
             } else {
-                insertar(nuevo, r.getIzquierda());
+                insertarNuevoProducto(nuevo, r.getIzquierda());
             }
         }else if (nuevo.getDato().getCodigo() > r.getDato().getCodigo()){
             if (r.getDerecha() == null) {
                 r.setDerecha(nuevo);
             } else {
-                insertar(nuevo, r.getDerecha());
+                insertarNuevoProducto(nuevo, r.getDerecha());
             }
         } else{
             System.out.println("Datos" + nuevo.getDato()+ "esta duplicado ...");
         }
     }
     
-    public void preorden(NodoDoble nd){
+    public void preOrden(NodoDoble nd){
         if(esVacia()){
             return;
         }
-        System.out.println("" + nd.getDato());
-        preorden(nd.getIzquierda());
-        preorden(nd.getDerecha());
+        System.out.println(" " + nd.getDato());
+        preOrden(nd.getIzquierda());
+        preOrden(nd.getDerecha());
+    }
+    
+    public void inOrden(NodoDoble nd){
+        if(esVacia()){
+            return;
+        }
+        System.out.println(" " + nd.getDato());
+        inOrden(nd.getIzquierda());
+        inOrden(nd.getDerecha());
+    }
+    
+    public void insertarProductoExistente(NodoDoble producto){
+        
+    }
+    
+    public void buscarProducto(String algo){
+    
+    }
+    
+    public void eliminarProducto(String algo){
+    
     }
     
     
