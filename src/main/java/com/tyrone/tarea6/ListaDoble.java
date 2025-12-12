@@ -30,7 +30,7 @@ public class ListaDoble {
     }
     
     //Insertar inicio o final
-    public void InsertInicio(Estudiante dato){
+    public void InsertInicio(Estudiante dato){//metodo que uso el profe en clase
         NodoDoble nuevo = new NodoDoble(null, dato, null);
         if (ListaVacia()) {
             inicio = nuevo;
@@ -49,7 +49,7 @@ public class ListaDoble {
         if (ListaVacia()) {
             inicio = nuevo;
             fin = nuevo;
-        } else {
+        } else {//aqui basicamente no ingrese el dato con un setDato porq se esta haciendo arriba gracias al constrictor de esa clase
             fin.setSigue(nuevo);
             nuevo.setAnte(fin);
             fin = nuevo;
@@ -110,7 +110,7 @@ public class ListaDoble {
                 
                 NodoDoble aux = inicio;
 
-                while (aux != null) {
+                while (aux != null) { //podia usar el metodo Imprimir pero no queria mostrar datos por consola por lo q hice este axuiliar
                     copia.InsertFinal(aux.getDato());  
                     aux = aux.getSigue();
                 }
