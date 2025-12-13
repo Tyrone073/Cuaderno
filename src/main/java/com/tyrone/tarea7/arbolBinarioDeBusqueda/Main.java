@@ -16,9 +16,12 @@ public class Main {
         ArbolBinario abb = new ArbolBinario(); 
         
         short preguntaMenu = 0;
+        int codigo = 0;
+        String nombre;
+        int stock;
               
         do{
-        System.out.println("Menu de opciones:");
+        System.out.println("\nMenu de opciones:");
         System.out.println("1. Agregar nuevo producto");
         System.out.println("2. Actualizar Stock de un producto");
         System.out.println("3. Buscar un producto");
@@ -34,19 +37,19 @@ public class Main {
             
             case 0:
                 System.out.println("Saliendo del sistema...");        
-                break;
+                return;
             case 1:
                 System.out.println("===Registrando el producto===");
                 System.out.print("Ingrese el nombre del producto: ");
-                String nombre = cap.nextLine();
+                nombre = cap.nextLine();
 
-                System.out.println("Ingrese la catidad del progucto a guardar");
-                int stock = cap.nextInt();
+                System.out.print("Ingrese la catidad del producto a guardar: ");
+                stock = cap.nextInt();
                 cap.nextLine();
 
                 
                 //Generando codigo unico mediante la concatenacion del orden de las letras mediaante numeros
-                int codigo = 0;
+                
                 String nombreAux = nombre.toUpperCase().replace(" ", "");
 
                 for(int i =0; i < nombreAux.length(); i++){
@@ -58,24 +61,42 @@ public class Main {
                     }
 
                 }
-                System.out.println("el producto se guardo con el codigo unico: "+ codigo);
+                System.out.println("El producto se registro con el codigo unico: "+ codigo);
                 Producto nuevoProducto = new Producto(codigo, nombre, stock);
                 abb.añadir(nuevoProducto);
+                break;
             
             case 2:
-            System.out.println("");
-
+                System.out.println("===Actualizando Stock de un producto===");
+                System.out.print("Ingrese el codigo unico o el nombre del producto: ");
+                nombre = cap.nextLine();
+                System.out.print("Ingrese la cantidad de producto: ");
+                stock = cap.nextInt();
+                abb.insertarProductoExistente(nombre, stock);
+                break;
+                
             case 3:
-                System.out.println("");
+                System.out.println("===Buscando un producto===");
+                System.out.println("Ingrese el codigo unico o el nombre del producto: ");
+                nombre = cap.nextLine();
+                System.out.println(abb.buscarProducto(nombre));
+                break;
+
             case 4:
-                System.out.println("");
+                System.out.println("===Eliminando un producto===");
+                System.out.println("Ingrese el codigo unico o el nombre del producto: ");
+                nombre = cap.nextLine();
+                abb.eliminarProducto(nombre);
+                break;
+                
             case 5:
-                System.out.println("");
+                System.out.println("===Arbol completo de los productos existentes====");
+                System.out.println(abb.inOrden(abb.getRaiz()).getDato());
+                break;
             default:
                 System.out.println("Escoja una de las opciones disponibles");;
-        }
-        
-             
+                break;
+        }     
             
         }  while(preguntaMenu != 0);
         

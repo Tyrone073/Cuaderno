@@ -69,24 +69,176 @@ public class ArbolBinario {
         preOrden(nd.getDerecha());
     }
     
+//    public NodoDoble inOrden(NodoDoble nd){
+//        if (nd == null) {
+//            return null;
+//        }
+//        inOrden(nd.getIzquierda());
+//        NodoDoble a = nd;
+////        System.out.println(" " + a.getDato());
+//        inOrden(nd.getDerecha());
+//        return a;
+//    }
+//    public Producto inOrden(NodoDoble nd){
+//        if (nd == null) {
+//            return null;
+//        }
+//        inOrden(nd.getIzquierda());
+//        NodoDoble a = nd;
+////        System.out.println(" " + a.getDato());
+//        inOrden(nd.getDerecha());
+//        return a.getDato();
+//    }
+    
     public void inOrden(NodoDoble nd){
-        if(esVacia()){
+        if (esVacia()){
             return;
         }
-        System.out.println(" " + nd.getDato());
+
         inOrden(nd.getIzquierda());
+        System.out.println(" " + nd.getDato());
         inOrden(nd.getDerecha());
     }
+
     
-    public void insertarProductoExistente(NodoDoble producto){
+    public void insertarProductoExistente(String idONombre, int stock){      
         
+        if(esVacia()){
+            System.out.println("Sin productos");
+        }else{
+            NodoDoble nodoProducto = buscarProducto(idONombre);////
+            int nuevoStock = nodoProducto.getDato().getStock() + stock;
+            nodoProducto.getDato().setStock(nuevoStock);
+            
+            insertarNuevoProducto(nodoProducto, nodoProducto);
+            System.out.println("Stock se actualizo");
+        }
+//        NodoDoble nodoProducto = buscarProducto(idONombre);
+//
+//    if (nodoProducto == null) {
+//        System.out.println("Producto no encontrado");
+//        return;
+//    }
+//
+//    int nuevoStock = nodoProducto.getDato().getStock() + stock;
+//    nodoProducto.getDato().setStock(nuevoStock);
+//
+//    System.out.println("Stock actualizado correctamente");
     }
     
-    public void buscarProducto(String algo){
+    public NodoDoble buscarProducto(String idONombre){
+
+        
+    if (esVacia()) {
+        System.out.println("Sin productos");
+        return null;
+    }
+
+    NodoDoble actual = raiz;
+
+    //si se detecta un numero
+    if (idONombre.matches("\\d+")) {
+
+        int id = Integer.parseInt(idONombre);
+
+        while (actual != null) {
+
+            if (id == actual.getDato().getCodigo()) {
+                return actual;
+            }
+
+            if (id < actual.getDato().getCodigo()) {
+                actual = actual.getIzquierda();
+            } else {
+                actual = actual.getDerecha();
+            }
+        }
+
+        System.out.println("Producto no encontrado");
+        return null;
+    }
+
+    
+    actual = raiz;//vuelvo a meterle los datos de raiz porq en el recorrido anterior ya se vacio
+
+    NodoDoble ultimoVisitado = null;
+
+    while (actual != null) {
+
+        if (actual.getDato().getNombre().equalsIgnoreCase(idONombre)) {
+            return actual;
+        }
+
+        if (actual.getIzquierda() != null && ultimoVisitado != actual.getIzquierda()) {
+            ultimoVisitado = actual;
+            actual = actual.getIzquierda();
+
+        } else if (actual.getDerecha() != null && ultimoVisitado != actual.getDerecha()) {
+            ultimoVisitado = actual;
+            actual = actual.getDerecha();
+
+        } else {
+            ultimoVisitado = actual;
+            actual = null;
+        }
+    }
+
+    System.out.println("Producto no encontrado");
+    return null;
     
     }
     
-    public void eliminarProducto(String algo){
+//    public NodoDoble buscarProducto(String idONombre){
+//        
+//        NodoDoble nodoProducto = null;
+//        
+//        
+//        if(esVacia()){
+//            System.out.println("Sin productos");
+//            return null;
+//        }else{
+////            Producto producto = inOrden(raiz);
+//            NodoDoble producto = inOrden(raiz);
+//
+//            if(producto.getDato().getNombre().equals(idONombre)){
+////            if(producto.getNombre().equals(idONombre)){
+////                System.out.println(producto.getDato());
+////                nodoProducto = producto;
+////                nodoProducto.getDato();
+////                nodoProducto = nodoProducto;
+//                return producto;
+//
+//            }else if(idONombre.matches("\\d+")){
+//                int id =  Integer.parseInt(idONombre);  
+//                
+//                if(id == producto.getDato().getCodigo()){
+////                if(id == producto.getCodigo()){
+////                    System.out.println(producto.getDato());
+////                    nodoProducto = producto;
+////                    nodoProducto.getDato();
+////                    nodoProducto = nodoProducto;
+//                    return producto;
+//
+//                }
+//            }
+//            else{
+//                System.out.println("Nodo producto no encontrado");
+////                nodoProducto = null;
+//                return nodoProducto;
+//            }
+//        }
+//        return nodoProducto;
+//    
+//    }
+    
+    public void eliminarProducto(String idONombre){
+        NodoDoble nodoProducto = buscarProducto(idONombre);
+        if(esVacia()){
+            System.out.println("Sin productos");
+        }else{
+            
+        }
+        
     
     }
     
