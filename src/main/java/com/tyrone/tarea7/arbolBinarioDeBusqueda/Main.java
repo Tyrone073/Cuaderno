@@ -16,9 +16,8 @@ public class Main {
         ArbolBinario abb = new ArbolBinario(); 
         
         short preguntaMenu = 0;
-        int codigo = 0;
-        String nombre;
-        int stock;
+        
+       
               
         do{
         System.out.println("\nMenu de opciones:");
@@ -32,6 +31,9 @@ public class Main {
         System.out.print("\nIngrese una de las opciones: ");
         preguntaMenu = cap.nextShort();
         cap.nextLine();
+        int codigo = 0;
+        String nombre;
+        int stock;
         
         switch (preguntaMenu) {
             
@@ -46,6 +48,7 @@ public class Main {
                 System.out.print("Ingrese la catidad del producto a guardar: ");
                 stock = cap.nextInt();
                 cap.nextLine();
+                
 
                 
                 //Generando codigo unico mediante la concatenacion del orden de las letras mediaante numeros
@@ -77,21 +80,32 @@ public class Main {
                 
             case 3:
                 System.out.println("===Buscando un producto===");
-                System.out.println("Ingrese el codigo unico o el nombre del producto: ");
+                System.out.print("Ingrese el codigo unico o el nombre del producto: ");
                 nombre = cap.nextLine();
-                System.out.println(abb.buscarProducto(nombre));
+//                System.out.println(abb.buscarProducto(nombre));
+                abb.imprimirUnProducto(abb.getRaiz(), nombre);
                 break;
 
             case 4:
                 System.out.println("===Eliminando un producto===");
-                System.out.println("Ingrese el codigo unico o el nombre del producto: ");
+                System.out.print("Ingrese el codigo unico o el nombre del producto: ");
                 nombre = cap.nextLine();
-                abb.eliminarProducto(nombre);
+                abb.eliminarProducto(abb.getRaiz(),nombre);
                 break;
                 
             case 5:
                 System.out.println("===Arbol completo de los productos existentes====");
-                System.out.println(abb.inOrden(abb.getRaiz()).getDato());
+                System.out.println("===Metodo preOrden===");
+                abb.preOrden(abb.getRaiz());
+                System.out.println("");
+                
+                System.out.println("===Metodo inOrden===");
+                abb.inOrden(abb.getRaiz());
+                System.out.println("");
+                
+                System.out.println("===Metodo posOrden===");
+                abb.posOrden(abb.getRaiz());
+                
                 break;
             default:
                 System.out.println("Escoja una de las opciones disponibles");;
