@@ -16,9 +16,7 @@ public class Main {
         ArbolBinario abb = new ArbolBinario(); 
         
         short preguntaMenu = 0;
-        
-       
-              
+         
         do{
         System.out.println("\nMenu de opciones:");
         System.out.println("1. Agregar nuevo producto");
@@ -48,9 +46,7 @@ public class Main {
                 System.out.print("Ingrese la catidad del producto a guardar: ");
                 stock = cap.nextInt();
                 cap.nextLine();
-                
-
-                
+                   
                 //Generando codigo unico mediante la concatenacion del orden de las letras mediaante numeros
                 
                 String nombreAux = nombre.toUpperCase().replace(" ", "");
@@ -82,8 +78,7 @@ public class Main {
                 System.out.println("===Buscando un producto===");
                 System.out.print("Ingrese el codigo unico o el nombre del producto: ");
                 nombre = cap.nextLine();
-//                System.out.println(abb.buscarProducto(nombre));
-                abb.imprimirUnProducto(abb.getRaiz(), nombre);
+                abb.imprimirBusquedaDeUnProducto(abb.getRaiz(), nombre);
                 break;
 
             case 4:

@@ -101,11 +101,10 @@ public class ArbolBinario {
                 System.out.println("Nos se encontro producto");
                 return;
             }
-            ////
+
             int nuevoStock = nodoProducto.getDato().getStock() + stock;
             nodoProducto.getDato().setStock(nuevoStock);
 
-//            insertarNuevoProducto(nodoProducto, nodoProducto);
             System.out.println("Stock se actualizo");
             System.out.println(nodoProducto.getDato());
         }
@@ -124,14 +123,12 @@ public class ArbolBinario {
             int id = Integer.parseInt(idONombre);
             
             if (id == actual.getDato().getCodigo()) {
-//                System.out.println("dato encontrado: "+ actual.getDato());   
-//                producto = actual;
+                
                 return actual;
             }
 
         }else if(actual.getDato().getNombre().equalsIgnoreCase(idONombre)) {
-//            System.out.println("dato encontrado: "+ actual.getDato());
-//            producto = actual;
+
             return actual;
         }
         
@@ -140,11 +137,11 @@ public class ArbolBinario {
             return encontrado;
         }
  
-        return buscarProducto(actual.getDerecha(), idONombre);//si al final no encuantra por la derecha ni por la izquierda entonces retorna un null
+        return buscarProducto(actual.getDerecha(), idONombre);//si al final no encuantra por la derecha ni por la izquierda entonces retorna un null es similar al codigo de preOrden pero retornando en cada recurcion
         
     }
     
-    public void imprimirUnProducto(NodoDoble actual,String idONombre){
+    public void imprimirBusquedaDeUnProducto(NodoDoble actual,String idONombre){
         NodoDoble producto = buscarProducto(actual, idONombre);
         if (producto != null) {
             System.out.println("Producto: "+ producto.getDato());
@@ -189,7 +186,7 @@ public class ArbolBinario {
                
             }
             
-            // el id es menor que los datos del nodo, busque el id en el subárbol izquierdo
+            // codigo de la guia
                 if(id < nodo.getDato().getCodigo()){
                     nodo.setIzquierda(borrarNodo(nodo.getIzquierda(), idONombre));
                     // el id es mayor que los datos del nodo, busque el id en el subárbol derecho
@@ -222,8 +219,7 @@ public class ArbolBinario {
             return nodo;
         }
     }
-    
-    // minNode () encontrará el nodo mínimo
+       
     public NodoDoble minNodo(NodoDoble raiz) {
         if (raiz.getIzquierda() != null){
             return minNodo(raiz.getIzquierda());
