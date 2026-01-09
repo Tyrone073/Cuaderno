@@ -104,6 +104,5 @@ public class Vehiculo {
                 "\n Hora De Entrada = " + horaEntrada.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + 
                 "\n Hora de Salida = " + (horaRetirado == null ?"Vehículo sin retirarse" :horaRetirado.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
     }
-    
-    
+        
 }

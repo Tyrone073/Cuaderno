@@ -60,8 +60,7 @@ public class ListaDoble {
             fin = nuevo;
         }
     }
-
-    // practicando
+    
     public String EliminarFinal() {
         if (ListaVacia()) {
             return "Lista vacia";

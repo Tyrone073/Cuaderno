@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author tyron
  */
-public class Main {
+public class SistemaGarajeUTM {
     public static void main(String[] args) {
         Scanner cap = new Scanner(System.in);
         ArbolABB abb = new ArbolABB(); 
@@ -47,10 +47,20 @@ public class Main {
 
                 System.out.print("Ingrese la marca del vehiculo: ");
                 String marca = cap.nextLine();
-                
-                System.out.print("Ingrese el año de fabricacion del vehiculo: ");
-                short aFabricacion = cap.nextShort();
-                cap.nextLine();
+                //validacion para q solo guarde numeros
+                short aFabricacion = 0;
+                while (true) {
+                    System.out.print("Ingrese el año de fabricación del vehículo: ");
+
+                    if (cap.hasNextShort()) { 
+                        aFabricacion = cap.nextShort();
+                        cap.nextLine();
+                        break; // sale del ciclo porq ya se capturo un numero 
+                    } else {
+                        System.out.println("Error: debe ingresar un año válido.");
+                        cap.nextLine();
+                    }
+                }                               
                    
                 System.out.print("Ingrese el color del vehiculo: ");
                 String color = cap.nextLine();
@@ -58,6 +68,7 @@ public class Main {
                 Vehiculo nuevoVehiculo = new Vehiculo(placa, marca, aFabricacion, color);
                 abb.añadir(nuevoVehiculo);
                 break;
+
             
             case 2:
                 System.out.println("===Retirar vehiculo===");

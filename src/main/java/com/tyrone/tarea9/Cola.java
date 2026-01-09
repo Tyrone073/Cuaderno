@@ -14,7 +14,7 @@ public class Cola {
     private Nodo inicio;
     private Nodo fin;
     
-     //Atributo aparte de una cola, se ocupa para ver cuantas veces hubo redundancia en el metodo preOrdenConteo y asi tener un conteo de objetos en este caso motos
+    //Atributo aparte de una cola, se ocupa para ver cuantas veces hubo redundancia en el metodo preOrdenConteo y asi tener un conteo de objetos en este caso motos
     private int nuTotal;
     
 
@@ -28,10 +28,12 @@ public class Cola {
     }
 
     //Metodos
+    //metodo cola vacia
     public boolean esVacia() {
         return inicio == null;
     }
 
+    //metodo Push
     public void encolar(Vehiculo valor) {
         Nodo nuevo = new Nodo(valor, null);
 
@@ -44,6 +46,7 @@ public class Cola {
         }
     }
 
+    //metodo Pop
     public Vehiculo desencolar() {
 
         if (!esVacia()) {
@@ -61,6 +64,7 @@ public class Cola {
         }
     }
 
+    //metodo mostrar datos
     public void Imprimir() {
 
         if (esVacia()) {           
@@ -81,7 +85,7 @@ public class Cola {
 
     }
 
-    
+    //practicando la recursion en esta cola y recorrer todos los datos, me base en el metodo preorden de un abb
     private void preOrdenConteo(Nodo nd) {
         if (nd == null) {
             return;

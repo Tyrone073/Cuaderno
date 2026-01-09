@@ -21,7 +21,6 @@ com\tyrone\tarea9\Vehiculo.class
 com\tyrone\tarea4\PILAShort.class
 com\tyrone\tarea4\NODOShort.class
 com\tyrone\tarea7\arbolBinarioDeBusqueda\ArbolBinario.class
-com\tyrone\tarea9\Main.class
 com\tyrone\tarea1\ConteoDigitoNumero.class
 com\tyrone\tarea7\arbolBinarioDeBusqueda\Producto.class
 com\tyrone\tarea4\NODO.class
@@ -37,6 +36,7 @@ com\tyrone\tarea6\MainPuntajeMejoresPostulacion.class
 com\tyrone\tarea1\MultiplicacionSinSuOperador.class
 com\tyrone\tarea3\listaSimplementeEnlazadaCircular\NodoJugador.class
 com\tyrone\tarea4\OrdenarColaValorInderteminado.class
+com\tyrone\tarea9\SistemaGarajeUTM.class
 com\tyrone\tarea9\Nodo.class
 com\tyrone\tarea3\listaSimplementeEnlazadaCircular\Principales.class
 com\tyrone\tarea3\listaSimplementeEnlazadaCircular\Persona.class
