@@ -14,6 +14,9 @@ public class ListaDoble {
     private NodoArbol inicio;
     private NodoArbol fin;
     
+    //Atributo aparte de una lista, se ocupa para ver cuantas veces hubo redundancia en el metodo preOrdenConteo y asi tener un conteo de objetos en este caso carros
+    private int nuTotal;
+    
     //nota
         //sigue = derecha 
         //ante = izquierda
@@ -95,4 +98,19 @@ public class ListaDoble {
         }
     }
 
+    private void preOrdenConteo(NodoArbol nd) {
+        if (nd == null) {
+            return;
+        }        
+        nuTotal++;
+        preOrdenConteo(nd.getIzquierda());
+        preOrdenConteo(nd.getDerecha());
+       
+    }
+     
+    public int conteo(){
+        nuTotal=0;
+        preOrdenConteo(inicio);
+        return nuTotal;
+    }
 }

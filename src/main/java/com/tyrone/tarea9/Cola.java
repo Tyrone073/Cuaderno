@@ -13,6 +13,10 @@ public class Cola {
     //Atributos
     private Nodo inicio;
     private Nodo fin;
+    
+     //Atributo aparte de una cola, se ocupa para ver cuantas veces hubo redundancia en el metodo preOrdenConteo y asi tener un conteo de objetos en este caso motos
+    private int nuTotal;
+    
 
 //Constructores
     public Cola() {
@@ -77,4 +81,19 @@ public class Cola {
 
     }
 
+    
+    private void preOrdenConteo(Nodo nd) {
+        if (nd == null) {
+            return;
+        }        
+        nuTotal++;
+        preOrdenConteo(nd.getSigue());              
+    }
+    
+    public int conteo(){
+        nuTotal=0;
+        preOrdenConteo(inicio);
+        return nuTotal;
+    }
+     
 }

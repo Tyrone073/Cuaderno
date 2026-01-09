@@ -4,6 +4,8 @@
  */
 package com.tyrone.tarea9;
 
+import java.time.LocalDateTime;
+
 /**
  *
  * @author tyron
@@ -16,10 +18,8 @@ public class ArbolABB {
     private ListaDoble listaDoble = new ListaDoble();
     private Cola cola = new Cola();
     private int nuTotal = 0;
-    private int nuMotos = 0;
-    private int nuCarros = 0;
-    private int nuMotosRetiradas = 0;
-    private int nuCarrosRetirados = 0;
+    private int nuTotalMotos = 0;
+    private int nuTotalCarros = 0;
 
     public ArbolABB() {
     }
@@ -47,8 +47,6 @@ public class ArbolABB {
     }
 
     private void insertarNuevoCarro(NodoArbol nuevo, NodoArbol r) {
-        
-         
 
         if (esVacia()) {
             raiz = nuevo;
@@ -80,7 +78,6 @@ public class ArbolABB {
     }
 
     public void inOrden(NodoArbol nd) {
-
         if(nd != null){
             inOrden(raiz.getIzquierda());
             System.out.println(" " + nd.getDato());
@@ -91,29 +88,33 @@ public class ArbolABB {
     public void posOrden(NodoArbol nd) {
 
         if(nd != null){
-            inOrden(raiz.getIzquierda());
+            inOrden(nd.getIzquierda());
             inOrden(nd.getDerecha());
             System.out.println(" " + nd.getDato());
         }
     }
     
+    //hago un conteo vazandome en la recurcion del metodo de preorden, basicamente aumento tres variables en cada recurcion verificando q este objeto no tenga un dato en hora de retiro,
+    //luego hago un conteo para carro y moto donde verifico q si la placa de este objeto vehiculo tenga caracteres q esten entre a y z sea carro pero si no es asi entonces dea moto.
     private void preOrdenConteo(NodoArbol nd) {
         if (nd == null) {
             return;
         }
-        if(nd.getDato().getPlaca().toLowerCase().charAt(2) >= 'a' && nd.getDato().getPlaca().toLowerCase().charAt(2) <= 'z'){
-            nuCarros++ ;            
-        }else{           
-            nuMotos++;
+        if(nd.getDato().getHoraRetirado() == null){    
+            if(nd.getDato().getPlaca().toLowerCase().charAt(2) >= 'a' && nd.getDato().getPlaca().toLowerCase().charAt(2) <= 'z'){
+                nuTotalCarros++ ;            
+            }else{           
+                nuTotalMotos++;
+            }
+            nuTotal++;
         }
-        nuTotal++;
 
         preOrdenConteo(nd.getIzquierda());
         preOrdenConteo(nd.getDerecha());
        
     }
     
-    
+    //guardo el carro y la como en una lista o cola como pide la tarea pero no elimino nada en el arbol
     public void retirarVehiculo(String nuPlaca) {
    
         NodoArbol vehiculoActual = buscarUnVehiculo(raiz, nuPlaca);
@@ -122,19 +123,19 @@ public class ArbolABB {
             String placa = vehiculoActual.getDato().getPlaca().toLowerCase();
             if(placa.charAt(2) >= 'a' && placa.charAt(2) <= 'z'){
                 listaDoble.InsertInicio(vehiculoActual.getDato());
-                nuCarrosRetirados++;
             }else{
-                listaDoble.InsertInicio(vehiculoActual.getDato());
-                nuMotosRetiradas++;
+                cola.encolar(vehiculoActual.getDato());
             }
-         
+            nuTotal--;
+            vehiculoActual.getDato().setHoraRetirado(LocalDateTime.now());
+            System.out.println("Vehiculo retirado con exito");
         }else{
             System.out.println("Vehiculo no encontrado");
         }
         
         
     }
-    
+    //lo deje en private porq solo lo voy a ocupar en  esta clase ya q en la no me pide una busqueda pero si una retirada q es similar, aunq por eso lo havia dejado en ese metodo, decidi separarlo para ocuparlos en otros metodos como el de borrarNodo 
     private NodoArbol buscarUnVehiculo(NodoArbol actual,String nuPlaca){
          if (actual == null) {          
             return null;
@@ -152,7 +153,7 @@ public class ArbolABB {
               
     }
 
-
+    //este metodo no se ocupa pero lo deje porq es caracteristico de un arbol y me parece q en la tarea me pide "otros metodos".
     public void eliminarVehiculo(String nuPlaca) {
        
         raiz = borrarNodo(raiz, nuPlaca);
@@ -218,13 +219,21 @@ public class ArbolABB {
     }
     
     public void reporte(){
+        //reasigno un valor 0 a estas variables para q cuando vuelva a usar este metodo no tenga datos estas variables y dupliquen sus datos
+        nuTotalCarros = 0;
+        nuTotalMotos = 0;
+        nuTotal = 0;   
         preOrdenConteo(raiz);
         
+        int nuTotalMotosRetiradas = cola.conteo();
+        int nuTotalCarrosRetirados = listaDoble.conteo();
+        
+        
         System.out.println("Total de Vehiculos en el garaje: "+nuTotal);
-        System.out.println("Total de Motos en el garaje: "+nuMotos);
-        System.out.println("Total de Carros en el garaje: "+nuCarros);
-        System.out.println("Total de Motos retiradas: "+nuMotosRetiradas);
-        System.out.println("Total de Carros retiradas: "+nuCarrosRetirados);
+        System.out.println("Total de Motos en el garaje: "+nuTotalMotos);
+        System.out.println("Total de Carros en el garaje: "+nuTotalCarros);
+        System.out.println("Total de Motos retiradas: "+nuTotalMotosRetiradas);
+        System.out.println("Total de Carros retiradas: "+nuTotalCarrosRetirados);
         
     }
 }

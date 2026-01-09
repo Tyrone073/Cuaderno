@@ -5,6 +5,7 @@
 package com.tyrone.tarea9;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -12,19 +13,21 @@ import java.time.LocalDateTime;
  */
 public class Vehiculo {
     //Atributos
+    private static int contadorId = 0;
     private int id;
     private String placa;
     private String marca;
     private short anioDeFabricación; 
     private String color;
     private LocalDateTime horaEntrada;
+    private LocalDateTime horaRetirado;
 
     //Constructores
     public Vehiculo() {
     }
     
-    public Vehiculo(int id, String placa, String marca, short anioDeFabricación, String color) {
-        this.id = id;
+    public Vehiculo(String placa, String marca, short anioDeFabricación, String color) {
+        this.id = ++contadorId; //pre-incremento con el valor statico contadorId
         this.placa = placa;
         this.marca = marca;
         this.anioDeFabricación = anioDeFabricación;
@@ -82,9 +85,24 @@ public class Vehiculo {
         this.horaEntrada = horaEntrada;
     }
 
+    public LocalDateTime getHoraRetirado() {
+        return horaRetirado;
+    }
+
+    public void setHoraRetirado(LocalDateTime horaRetirado) {
+        this.horaRetirado = horaRetirado;
+    }    
+
     @Override
     public String toString() {
-        return "Vehiculo: " + "\nId= " + id + "\nPlaca= " + placa + "\nMarca= " + marca + "\nAño De Fabricacion= " + anioDeFabricación + "\nColor= " + color + "\nHora De Entrada= " + horaEntrada ;
+        return "\nVehiculo: " + 
+                "\n Id = " + id + 
+                "\n Placa = " + placa + 
+                "\n Marca = " + marca + 
+                "\n Año De Fabricacion = " + anioDeFabricación + 
+                "\n Color = " + color + 
+                "\n Hora De Entrada = " + horaEntrada.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + 
+                "\n Hora de Salida = " + (horaRetirado == null ?"Vehículo sin retirarse" :horaRetirado.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
     }
     
     
